@@ -1,0 +1,59 @@
+cabal-version: 2.4
+name:          kagi
+version:       0.1.0.0
+build-type:    Simple
+license:       Unlicense
+
+executable kagi
+  hs-source-dirs:      app src
+  main-is:             Main.hs
+  other-modules:
+      Analysis.Classification
+      Analysis.Context
+      Analysis.Entropy
+      Analysis.Redaction
+      CLI.Command.Check
+      CLI.Command.Hook
+      CLI.Command.Rules
+      CLI.Command.Scan
+      CLI.Options
+      CLI.Parser
+      Config.Config
+      Config.Ignore
+      Config.Rules
+      Core.Confidence
+      Core.Finding
+      Core.Result
+      Core.Severity
+      Detector.Generic.Credential
+      Detector.Generic.Entropy
+      Detector.Generic.Password
+      Detector.Key.JWT
+      Detector.Key.Private
+      Detector.Provider.AWS
+      Detector.Provider.GitHub
+      Detector.Provider.Slack
+      Detector.Provider.Stripe
+      Detector.Registry
+      File.Binary
+      File.Classify
+      File.Ignore
+      File.Text
+      Git.Diff
+      Git.History
+      Git.Repository
+      Git.Staged
+      Git.Tracked
+      Output.JSON
+      Output.SARIF
+      Output.Terminal
+      Scanner.Engine
+      Scanner.File
+      Scanner.Repository
+      Scanner.Worker
+  build-depends:
+      base >=4.14 && <5,
+      directory,
+      filepath
+  default-language:    Haskell2010
+  ghc-options:         -Wall -O0

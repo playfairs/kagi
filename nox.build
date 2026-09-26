@@ -1,0 +1,57 @@
+project "kagi" {
+    version = "0.1.0"
+    description = "Secret scanner for Git."
+    license = "Unlicense"
+    edition = "1"
+
+    executable.haskell "kagi" {
+        sources = [
+            "app/Main.hs",
+            "src/Analysis/Classification.hs",
+            "src/Analysis/Context.hs",
+            "src/Analysis/Entropy.hs",
+            "src/Analysis/Redaction.hs",
+            "src/CLI/Options.hs",
+            "src/CLI/Parser.hs",
+            "src/CLI/Command/Check.hs",
+            "src/CLI/Command/Hook.hs",
+            "src/CLI/Command/Rules.hs",
+            "src/CLI/Command/Scan.hs",
+            "src/Config/Config.hs",
+            "src/Config/Ignore.hs",
+            "src/Config/Rules.hs",
+            "src/Core/Confidence.hs",
+            "src/Core/Finding.hs",
+            "src/Core/Result.hs",
+            "src/Core/Severity.hs",
+            "src/Detector/Generic/Credential.hs",
+            "src/Detector/Generic/Entropy.hs",
+            "src/Detector/Generic/Password.hs",
+            "src/Detector/Key/JWT.hs",
+            "src/Detector/Key/Private.hs",
+            "src/Detector/Provider/AWS.hs",
+            "src/Detector/Provider/GitHub.hs",
+            "src/Detector/Provider/Slack.hs",
+            "src/Detector/Provider/Stripe.hs",
+            "src/Detector/Registry.hs",
+            "src/File/Binary.hs",
+            "src/File/Classify.hs",
+            "src/File/Ignore.hs",
+            "src/File/Text.hs",
+            "src/Git/Diff.hs",
+            "src/Git/History.hs",
+            "src/Git/Repository.hs",
+            "src/Git/Staged.hs",
+            "src/Git/Tracked.hs",
+            "src/Output/JSON.hs",
+            "src/Output/SARIF.hs",
+            "src/Output/Terminal.hs",
+            "src/Scanner/Engine.hs",
+            "src/Scanner/File.hs",
+            "src/Scanner/Repository.hs",
+            "src/Scanner/Worker.hs"
+        ]
+        flags = ["-Wall", "-O0", "-iapp", "-isrc"]
+        install = true
+    }
+}

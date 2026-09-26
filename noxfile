@@ -1,0 +1,14 @@
+tasks:
+    build:
+        @nox setup build
+        run: nox build build
+    test:
+        @nox build
+        run: |
+            mkdir -p build/test
+            ghc -Wall -O0 -iapp -isrc -outputdir build/test -o build/test/SeveritySpec test/Core/SeveritySpec.hs
+            ./build/test/SeveritySpec
+            ghc -Wall -O0 -iapp -isrc -outputdir build/test -o build/test/ClassificationSpec test/Analysis/ClassificationSpec.hs
+            ./build/test/ClassificationSpec
+            ghc -Wall -O0 -iapp -isrc -outputdir build/test -o build/test/CheckSpec test/CLI/CheckSpec.hs
+            ./build/test/CheckSpec

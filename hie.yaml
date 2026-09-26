@@ -1,0 +1,8 @@
+cradle:
+  direct:
+    arguments:
+      - -isrc
+      - -iapp
+      - -itest
+      - -Wall
+      - -O0
